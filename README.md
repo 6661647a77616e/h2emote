@@ -95,3 +95,10 @@ npx shadcn@latest add skeleton
 npx shadcn@latest add card
 ```
 
+----
+
+Hadith Data Source
+The Hadith data used in this project was fetched from the following repository:
+
+[Fawaz Ahmed's Hadith API](https://github.com/fawazahmed0/hadith-api)
+
