@@ -1,17 +1,24 @@
+
+
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to get React working in Vite with Hot Module Replacement (HMR) and ESLint rules for a smooth development experience.
 
-Currently, two official plugins are available:
+## Plugins Available
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Currently, there are two official plugins to enable React in Vite:
 
-## Expanding the ESLint configuration
+1. **[@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)**  
+   Uses [Babel](https://babeljs.io/) for Fast Refresh.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. **[@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)**  
+   Uses [SWC](https://swc.rs/) for Fast Refresh.
 
-- Configure the top-level `parserOptions` property like this:
+## Expanding ESLint Configuration
+
+If you're developing a production-grade application, we recommend expanding the ESLint configuration to enable type-aware lint rules. Here’s how you can do that:
+
+1. **Configure `parserOptions` in your ESLint config:**
 
 ```js
 export default tseslint.config({
@@ -25,26 +32,66 @@ export default tseslint.config({
 })
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. **Switch to type-checked linting rules:**
+
+Update `tseslint.configs.recommended` to use type-checked configurations:
+
+```js
+tseslint.configs.recommendedTypeChecked
+// or
+tseslint.configs.strictTypeChecked
+```
+
+Optionally, you can add stylistic rules:
+
+```js
+...tseslint.configs.stylisticTypeChecked
+```
+
+3. **Install React ESLint Plugin:**
+
+Install the `eslint-plugin-react` and update your ESLint config:
+
+```bash
+npm install eslint-plugin-react --save-dev
+```
+
+Then, update your ESLint configuration file:
 
 ```js
 // eslint.config.js
 import react from 'eslint-plugin-react'
 
 export default tseslint.config({
-  // Set the react version
+  // Set the React version
   settings: { react: { version: '18.3' } },
   plugins: {
-    // Add the react plugin
+    // Add the React plugin
     react,
   },
   rules: {
-    // other rules...
-    // Enable its recommended rules
+    // Enable recommended rules
     ...react.configs.recommended.rules,
     ...react.configs['jsx-runtime'].rules,
   },
 })
 ```
+
+## Modules Used
+
+To add the necessary modules and components for your project, you can use the following commands:
+
+```bash
+# Install moji-translate for emoji translation
+npm install moji-translate
+
+# Install the Button component from ShadCN UI
+npx shadcn@latest add button
+
+# Install the Skeleton component from ShadCN UI
+npx shadcn@latest add skeleton
+
+# Install the Card component from ShadCN UI
+npx shadcn@latest add card
+```
+
